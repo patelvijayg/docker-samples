@@ -15,7 +15,7 @@ ADD . /
 
 EXPOSE 8080
 
-CMD [ "python", "/server.py" ]
+CMD [ "python", "/app.py" ]
 
 #docker build --rm -t pytest1 .
 #docker run -it --name=pytest -p 8080:8080  pytest1

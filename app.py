@@ -5,7 +5,7 @@ result={"1":"one","2":"two","3":"three"}
 
 @app.route('/')
 def hello():
- print("called")
+ print("called" + os.environ['PATH'] )
  return jsonify(result),203
 
 @app.route("/<string:name>", methods=['GET', 'POST'])
