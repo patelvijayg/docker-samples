@@ -11,11 +11,11 @@ RUN pip install flask
 #RUN pip install pyopenssl
 
 
-ADD ./app /app
+ADD . /
 
-EXPOSE 5000
+EXPOSE 8080
 
-CMD [ "python", "/app/pythonWebServer.py" ]
+CMD [ "python", "/server.py" ]
 
 #docker build --rm -t pytest1 .
-#docker run -it --name=pytest -p 5100:5100  pytest1
+#docker run -it --name=pytest -p 8080:8080  pytest1
