@@ -17,10 +17,10 @@ def hello_name(name):
   return "Hello {}!".format(name)
 
 @app.route("/test/<string:name>", methods=['GET', 'POST'])
-def hello_name(name):
+def hello_name1(name):
  if request.method == 'POST':
   t = str(request.data.get('text', ''))	
-  return "save... {}".format(name)
+  return "save {}".format(name)
  else:
   return "Hello... {}!".format(name)
   
