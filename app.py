@@ -16,6 +16,14 @@ def hello_name(name):
  else:
   return "Hello {}!".format(name)
 
+@app.route("/test/<string:name>", methods=['GET', 'POST'])
+def hello_name(name):
+ if request.method == 'POST':
+  t = str(request.data.get('text', ''))	
+  return "save... {}".format(name)
+ else:
+  return "Hello... {}!".format(name)
+  
 if __name__ == '__main__':
  app.run(host='0.0.0.0', port=8080,debug=True)
  
