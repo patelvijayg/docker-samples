@@ -14,7 +14,8 @@ app = Flask(__name__)
 #app.config['MYSQL_PASSWORD'] = 'mypassword'
 #app.config['MYSQL_DB'] = 'yourdatabasename'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydb1.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydb1.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@postgresql:5432/sampledb'
 db = SQLAlchemy(app)
 #mysql = MySQL(app)
 
@@ -39,7 +40,7 @@ def addperson(p):
 	db.session.add(p)
 	db.session.commit()
 
-#db.create_all()	
+db.create_all()	
 one = Person(3,'vijay')
 #addperson(one)
 fetchon=Person.query.filter_by(id=2).first()
@@ -56,7 +57,7 @@ manager = flask_restless.APIManager(app, flask_sqlalchemy_db=db)
 manager.create_api(Person, methods=['GET', 'POST', 'DELETE'])
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(host='0.0.0.0', port=8080,debug=True)
 
 #http://127.0.0.1:5000/api/person
 #http://127.0.0.1:5000/api/person?q={"filter":[{"name":"id","op":"eq","val":"2"}]}
