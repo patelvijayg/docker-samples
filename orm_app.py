@@ -14,8 +14,8 @@ app = Flask(__name__)
 #app.config['MYSQL_PASSWORD'] = 'mypassword'
 #app.config['MYSQL_DB'] = 'yourdatabasename'
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydb1.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@postgresql:5432/sampledb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydb1.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@postgresql:5432/sampledb'
 db = SQLAlchemy(app)
 #mysql = MySQL(app)
 
