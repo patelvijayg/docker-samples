@@ -1,7 +1,7 @@
 #_id INT(6) PRIMARY KEY,name VARCHAR(100) NOT NULL,salary DECIMAL(10,2),birthdate DATE
 import json
 
-class testing:
+class Testing:
   def __init__(self,_id,name,salary,birthdate):
    self._id=_id
    self.name=name
