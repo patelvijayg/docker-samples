@@ -1,3 +1,5 @@
 Flask 
 flask-sqlalchemy
 Flask-Restless
+mysql-connector
+pymongo
