@@ -18,13 +18,21 @@ def find_one(id):
     with myclient:
         db = myclient.sampledb
         record=db.testing.find_one({"_id":id})
-        return record
+        print(record)
+        return testing.from_json(record)
 
 def delete_one(id):
     with myclient:
         db = myclient.sampledb
         db.testing.delete_one({"_id":id})
                 
+def convert_object():
+    import json
+    from collections import namedtuple
+    data = '{"name": "John Smith", "hometown": {"name": "New York", "id": 123}}'
+    # Parse JSON into an object with attributes corresponding to dict keys.
+    x = json.loads(data, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
+    return x
 
 def test_insertone():
     with myclient:
